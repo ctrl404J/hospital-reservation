@@ -17,12 +17,17 @@ public class Doctor {
     @Column(nullable = false, length = 50)
     private String specialty;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "hospital_id")
+    private Hospital hospital;
+
     protected Doctor(){
     }
 
-    public Doctor(String name, String specialty) {
+    public Doctor(String name, String specialty, Hospital hospital) {
         this.name = name;
         this.specialty = specialty;
+        this.hospital = hospital;
     }
 
     public Long getId() {
@@ -37,4 +42,7 @@ public class Doctor {
         return specialty;
     }
 
+    public Hospital getHospital() {
+        return hospital;
+    }
 }

@@ -24,6 +24,12 @@ public class MedicalHistory {
     protected MedicalHistory() {
     }
 
+    public MedicalHistory(String diagnosis, String prescription, Reservation reservation) {
+        this.diagnosis = diagnosis;
+        this.prescription = prescription;
+        this.reservation = reservation;
+    }
+
     public String getDiagnosis() {
         return diagnosis;
     }
