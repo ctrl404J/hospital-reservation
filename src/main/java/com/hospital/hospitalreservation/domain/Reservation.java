@@ -27,14 +27,19 @@ public class Reservation {
     @JoinColumn(name = "member_id")
     private Member member;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+
     protected Reservation(){
     }
 
-    public Reservation(LocalDate reservationDate, LocalTime reservationTime, String status, Member member){
+    public Reservation(LocalDate reservationDate, LocalTime reservationTime, String status, Member member, Doctor doctor){
         this.reservationDate = reservationDate;
         this.reservationTime = reservationTime;
         this.status = status;
         this.member = member;
+        this.doctor = doctor;
     }
 
     public Long getId() {
@@ -55,5 +60,9 @@ public class Reservation {
 
     public Member getMember() {
         return member;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
     }
 }
