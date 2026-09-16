@@ -30,6 +30,8 @@ public class MedicalHistory {
         this.reservation = reservation;
     }
 
+    public Long getId() { return id; }
+
     public String getDiagnosis() {
         return diagnosis;
     }
