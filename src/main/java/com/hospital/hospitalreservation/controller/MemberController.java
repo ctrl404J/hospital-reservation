@@ -17,9 +17,19 @@ public class MemberController {
         this.memberService = memberService;
     }
 
+    @PostMapping
+    public void join(@RequestBody MemberRequest request){
+        memberService.join(request);
+    }
+
     @GetMapping
     public List<MemberResponse> getMembers(){
         return memberService.getMembers();
+    }
+
+    @PatchMapping("/{id}")
+    public void update(@PathVariable Long id,  @RequestBody MemberRequest request){
+        memberService.update(id, request);
     }
 
 }

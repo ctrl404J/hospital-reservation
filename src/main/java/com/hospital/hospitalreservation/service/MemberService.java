@@ -4,6 +4,7 @@ import com.hospital.hospitalreservation.domain.Member;
 import com.hospital.hospitalreservation.dto.MemberRequest;
 import com.hospital.hospitalreservation.dto.MemberResponse;
 import com.hospital.hospitalreservation.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,16 +19,33 @@ public class MemberService {
         this.memberRepository = memberRepository;
     }
 
-    public List<MemberResponse> getMembers(){
+    public void join(MemberRequest request){
+        Member member = new Member(
+                request.getEmail(),
+                request.getPassword(),
+                request.getName(),
+                request.getPhone());
+        memberRepository.save(member);
+    }
 
+    public List<MemberResponse> getMembers(){
         List<MemberResponse> responseList = new ArrayList<>();
         List<Member> members = memberRepository.findAll();
-
         for(Member member : members){
             responseList.add(new MemberResponse(member));
         }
-
         return responseList;
     }
 
+    @Transactional
+    public void update(Long id, MemberRequest request) {
+        Member member = memberRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
+        member.updateInfo(
+                request.getEmail(),
+                request.getPassword(),
+                request.getName(),
+                request.getPhone()
+        );
+    }
 }
