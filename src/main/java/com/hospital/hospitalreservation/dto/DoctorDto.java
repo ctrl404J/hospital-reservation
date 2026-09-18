@@ -7,6 +7,7 @@ public class DoctorDto {
     private Long id;
     private String name;
     private String specialty;
+    private Long hospitalId;
 
     public DoctorDto() {
     }
@@ -15,6 +16,7 @@ public class DoctorDto {
         this.id = doctor.getId();
         this.name = doctor.getName();
         this.specialty = doctor.getSpecialty();
+        this.hospitalId = doctor.getHospital().getId();
     }
 
     public Long getId() {
@@ -39,5 +41,13 @@ public class DoctorDto {
 
     public void setSpecialty(String specialty) {
         this.specialty = specialty;
+    }
+
+    public Long getHospitalId() {
+        return hospitalId;
+    }
+
+    public void setHospitalId(Long hospitalId) {
+        this.hospitalId = hospitalId;
     }
 }
