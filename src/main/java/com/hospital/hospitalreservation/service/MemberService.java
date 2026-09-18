@@ -42,8 +42,6 @@ public class MemberService {
         Member member = memberRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
         member.updateInfo(
-                request.getEmail(),
-                request.getPassword(),
                 request.getName(),
                 request.getPhone()
         );
