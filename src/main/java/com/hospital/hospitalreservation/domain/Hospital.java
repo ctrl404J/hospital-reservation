@@ -29,6 +29,12 @@ public class Hospital {
         this.tel = tel;
     }
 
+    public void updateInfo(String name, String address, String tel){
+        this.name = name;
+        this.address = address;
+        this.tel = tel;
+    }
+
     public Long getId() {
         return id;
     }
