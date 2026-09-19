@@ -42,6 +42,12 @@ public class Reservation {
         this.doctor = doctor;
     }
 
+    public void updateInfo(LocalDate reservationDate, LocalTime reservationTime, String status){
+        this.reservationDate = reservationDate;
+        this.reservationTime = reservationTime;
+        this.status = status;
+    }
+
     public Long getId() {
         return id;
     }

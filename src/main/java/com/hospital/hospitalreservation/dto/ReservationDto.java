@@ -12,6 +12,8 @@ public class ReservationDto {
     private LocalDate reservationDate;
     private LocalTime reservationTime;
     private String status;
+    private Long memberId;
+    private Long doctorId;
 
     public ReservationDto(){
     }
@@ -21,6 +23,8 @@ public class ReservationDto {
         this.reservationDate = reservation.getReservationDate();
         this.reservationTime = reservation.getReservationTime();
         this.status = reservation.getStatus();
+        this.memberId = reservation.getMember().getId();
+        this.doctorId = reservation.getDoctor().getId();
     }
 
     public Long getId() {
@@ -53,5 +57,13 @@ public class ReservationDto {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Long getMemberId() {
+        return memberId;
+    }
+
+    public Long getDoctorId() {
+        return doctorId;
     }
 }
