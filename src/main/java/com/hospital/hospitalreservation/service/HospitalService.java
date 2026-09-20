@@ -27,9 +27,9 @@ public class HospitalService {
     }
 
     public List<HospitalDto> getHospitals() {
-        List<Hospital> hostpitals = hospitalRepository.findAll();
+        List<Hospital> hospitals = hospitalRepository.findAll();
         List<HospitalDto> hospitalList = new ArrayList<>();
-        for(Hospital hospital : hostpitals){
+        for(Hospital hospital : hospitals){
             hospitalList.add(new HospitalDto(hospital));
         }
         return hospitalList;
