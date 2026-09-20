@@ -7,6 +7,7 @@ public class MedicalHistoryDto {
     private Long id;
     private String diagnosis;
     private String prescription;
+    private Long reservationId;
 
     public MedicalHistoryDto() {
     }
@@ -39,6 +40,10 @@ public class MedicalHistoryDto {
 
     public void setPrescription(String prescription) {
         this.prescription = prescription;
+    }
+
+    public Long getReservationId() {
+        return reservationId;
     }
 
 }

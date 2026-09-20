@@ -30,6 +30,11 @@ public class MedicalHistory {
         this.reservation = reservation;
     }
 
+    public void updateInfo(String diagnosis, String prescription){
+        this.diagnosis = diagnosis;
+        this.prescription = prescription;
+    }
+
     public Long getId() { return id; }
 
     public String getDiagnosis() {
