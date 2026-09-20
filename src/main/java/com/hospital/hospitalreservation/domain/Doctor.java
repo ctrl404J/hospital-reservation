@@ -30,11 +30,6 @@ public class Doctor {
         this.hospital = hospital;
     }
 
-    public Doctor(String name, String specialty) {
-        this.name = name;
-        this.specialty = specialty;
-    }
-
     public void updateInfo(String name, String specialty){
         this.name = name;
         this.specialty = specialty;
