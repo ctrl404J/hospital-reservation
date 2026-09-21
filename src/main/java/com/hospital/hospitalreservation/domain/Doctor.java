@@ -1,9 +1,13 @@
 package com.hospital.hospitalreservation.domain;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 @Entity
 @Table(name = "doctors")
+@SQLDelete(sql = "UPDATE doctors SET is_deleted = true WHERE doctor_id = ?")
+@SQLRestriction("is_deleted = false")
 public class Doctor extends BaseEntity {
 
     @Id

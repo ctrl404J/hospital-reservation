@@ -1,12 +1,16 @@
 package com.hospital.hospitalreservation.domain;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "reservations")
+@SQLDelete(sql = "UPDATE reservations SET is_deleted = true WHERE reservation_id = ? ")
+@SQLRestriction("is_deleted = false")
 public class Reservation extends BaseEntity {
 
     @Id

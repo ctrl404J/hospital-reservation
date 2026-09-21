@@ -32,4 +32,9 @@ public class MemberController {
         memberService.update(id, request);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        memberService.delete(id);
+    }
+
 }

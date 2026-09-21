@@ -59,4 +59,10 @@ public class ReservationService {
                 reservationDto.getStatus()
         );
     }
+
+    public void delete(Long id) {
+        Reservation reservation = reservationRepository.findById(id).
+                orElseThrow(()->new IllegalArgumentException("존재하지 않는 예약정보입니다."));
+        reservationRepository.delete(reservation);
+    }
 }

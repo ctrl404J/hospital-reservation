@@ -51,4 +51,10 @@ public class DoctorService {
                 doctorDto.getSpecialty()
         );
     }
+
+    public void delete(Long id) {
+        Doctor doctor = doctorRepository.findById(id).
+                orElseThrow(()->new IllegalArgumentException("존재하지 않는 의사정보입니다."));
+        doctorRepository.delete(doctor);
+    }
 }

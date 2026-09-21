@@ -50,4 +50,10 @@ public class MedicalHistoryService {
                 medicalHistoryDto.getPrescription()
         );
     }
+
+    public void delete(Long id) {
+        MedicalHistory medicalHistory = medicalHistoryRepository.findById(id).
+                orElseThrow(()->new IllegalArgumentException("존재하지 않는 진료기록입니다."));
+        medicalHistoryRepository.delete(medicalHistory);
+    }
 }

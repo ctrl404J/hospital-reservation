@@ -32,4 +32,9 @@ public class HospitalController {
         hospitalService.update(id, hospitalDto);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        hospitalService.delete(id);
+    }
+
 }

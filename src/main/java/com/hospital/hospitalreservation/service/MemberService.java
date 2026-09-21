@@ -46,4 +46,10 @@ public class MemberService {
                 request.getPhone()
         );
     }
+
+    public void delete(Long id) {
+        Member member = memberRepository.findById(id).
+                orElseThrow(()->new IllegalArgumentException("존재하지 않는 회원입니다."));
+        memberRepository.delete(member);
+    }
 }

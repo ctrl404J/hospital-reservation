@@ -45,4 +45,10 @@ public class HospitalService {
                 hospitalDto.getTel()
         );
     }
+
+    public void delete(Long id) {
+        Hospital hospital = hospitalRepository.findById(id).
+                orElseThrow(()->new IllegalArgumentException("존재하지 않는 병원정보입니다."));
+        hospitalRepository.delete(hospital);
+    }
 }

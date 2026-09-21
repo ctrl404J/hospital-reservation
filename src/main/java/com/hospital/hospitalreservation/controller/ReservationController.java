@@ -31,4 +31,9 @@ public class ReservationController {
         reservationService.update(id, reservationDto);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        reservationService.delete(id);
+    }
+
 }

@@ -31,4 +31,9 @@ public class MedicalHistoryController {
         medicalHistoryService.update(id, medicalHistoryDto);
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id){
+        medicalHistoryService.delete(id);
+    }
+
 }
